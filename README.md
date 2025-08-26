@@ -1,4 +1,4 @@
-# 3D Solar System Visualizer
+# 3D Solar System Visualiser
 
 A real-time 3D visualisation/simulator of our Solar System using accurate NASA orbital elements. You can see the state of the solar system at any given time with full camera controls and detailed information for each planet.
 
@@ -115,7 +115,7 @@ The simulation uses accurate Keplerian orbital elements:
 ## File Structure
 
 ```
-solar-system-visualizer/
+solar-system-visualiser/
 ├── main.py              # Main application and 3D rendering
 ├── planet_data.py       # orbital mechanics and calculations
 ├── requirements.txt     # dependencies / libraries used
@@ -134,7 +134,7 @@ solar-system-visualizer/
 - Keplerian orbital element data for all planets
 - Orbital mechanics calculations (Kepler's equation solving)
 - Coordinate transformations (orbital to Cartesian)
-- Orbit path generation for visualization
+- Orbit path generation for visualisation
 
 ## Planetary Data
 
@@ -156,7 +156,7 @@ The simulator includes accurate orbital elements for all planets:
 This visualiser is perfect for:
 - **Astronomy Education**: Understanding orbital mechanics and planetary motion
 - **Historical Events**: Viewing planetary positions during significant dates
-- **Mission Planning**: Visualizing spacecraft launch windows
+- **Mission Planning**: Visualising spacecraft launch windows
 - **Astronomical Phenomena**: Exploring conjunctions and alignments
 
 ## Limitations
