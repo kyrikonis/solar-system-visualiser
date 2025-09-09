@@ -53,7 +53,7 @@
         .controls {
             top: 20px;
             right: 20px;
-            max-width: 200px;
+            max-width: 220px;
         }
         
         .planet-info {
@@ -125,7 +125,7 @@
             transform: translateY(0);
         }
         
-        .date-controls, .planet-controls {
+        .date-controls, .planet-controls, .zoom-controls {
             margin-top: 15px;
             padding-top: 15px;
             border-top: 1px solid rgba(100, 149, 237, 0.2);
@@ -280,9 +280,17 @@
         <div>⌨️ H: Toggle this window</div>
         <div>⌨️ 1-8: Quick planet select</div>
         
+        <div class="zoom-controls">
+            <div class="accent" style="margin-bottom: 5px;">📏 Zoom Presets</div>
+            <button onclick="setZoomPreset('close')" title="Close-up view">🔍 Close</button>
+            <button onclick="setZoomPreset('inner')" title="Inner planets">🌍 Inner</button>
+            <button onclick="setZoomPreset('outer')" title="All planets">🪐 All</button>
+            <button onclick="setZoomPreset('system')" title="Full system">🌌 System</button>
+        </div>
+        
         <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(100, 149, 237, 0.2);">
             <button onclick="resetCamera()" title="Reset camera position">🔄 Reset View</button>
-            <button onclick="toggleHelp()" title="Show/hide controls">❓ Toggle Help Window</button>
+            <button onclick="toggleHelp()" title="Show/hide controls">❓ Toggle Help</button>
             <button onclick="toggleFullscreen()" title="Toggle fullscreen">⛶ Fullscreen</button>
         </div>
     </div>
@@ -292,7 +300,7 @@
     </div>
 
     <script>
-        // planet data , orbital mechanics
+        // planet data, orbital mechanics
         const J2000_EPOCH = new Date('2000-01-01T12:00:00Z');
         
         const PLANETS = {
@@ -375,11 +383,11 @@
         const ctx = canvas.getContext('2d');
         let animationId;
         
-        // Camera state
+        // Camera state - improved defaults for better overview
         let camera = {
             rotationX: -25,
             rotationZ: 0,
-            distance: 800,
+            distance: 2000,  // Start further out for better overview
             dragging: false,
             lastMouse: [0, 0]
         };
@@ -398,7 +406,7 @@
             trails[name] = [];
         });
         
-        // orbital merchanics section
+        // orbital mechanics section
         function daysSinceJ2000(date) {
             return (date - J2000_EPOCH) / (1000 * 60 * 60 * 24);
         }
@@ -731,10 +739,12 @@
             }
         }
         
+        // IMPROVED ZOOM FUNCTION - Much wider range for full solar system view
         function handleWheel(e) {
             e.preventDefault();
             const zoomFactor = e.deltaY > 0 ? 1.1 : 0.9;
-            camera.distance = Math.max(200, Math.min(3000, camera.distance * zoomFactor));
+            // Extended range: 50 to 15000 (vs previous 200 to 3000)
+            camera.distance = Math.max(50, Math.min(15000, camera.distance * zoomFactor));
         }
         
         function handleClick(e) {
@@ -791,7 +801,7 @@
             }
         }
         
-        // UI
+        // UI functions
         function hideWelcome() {
             document.getElementById('welcome').style.display = 'none';
             document.getElementById('hud').style.display = 'block';
@@ -824,11 +834,30 @@
             currentDate = new Date();
         }
         
+        // IMPROVED RESET CAMERA - Better default view
         function resetCamera() {
             camera.rotationX = -25;
             camera.rotationZ = 0;
-            camera.distance = 800;
+            camera.distance = 2000;  // Better default for seeing all planets
             zoom = 140;
+        }
+        
+        // NEW ZOOM PRESET FUNCTION
+        function setZoomPreset(preset) {
+            switch(preset) {
+                case 'close':
+                    camera.distance = 150;   // Very close view
+                    break;
+                case 'inner':
+                    camera.distance = 500;   // Inner planets (Mercury to Mars)
+                    break;
+                case 'outer':
+                    camera.distance = 1500;  // All planets visible
+                    break;
+                case 'system':
+                    camera.distance = 5000;  // Full solar system overview
+                    break;
+            }
         }
         
         function toggleHelp() {
@@ -933,8 +962,9 @@
             document.getElementById('camera-info').innerHTML = 
                 `<span class="accent">📷 Camera:</span> ${camera.rotationX.toFixed(0)}° tilt, ${camera.rotationZ.toFixed(0)}° rotation`;
             
+            // IMPROVED ZOOM DISPLAY - Shows actual AU distance
             document.getElementById('zoom-info').innerHTML = 
-                `<span class="accent">🔍 Distance:</span> ${(camera.distance / 8).toFixed(1)} AU`;
+                `<span class="accent">🔍 Distance:</span> ${(camera.distance / 100).toFixed(1)} AU`;
             
             if (selectedPlanet) {
                 const position = elementsToXYZ(PLANETS[selectedPlanet], currentDate);
