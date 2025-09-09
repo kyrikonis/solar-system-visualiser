@@ -170,8 +170,5 @@ This visualiser is perfect for:
 
 - NASA JPL for orbital element data
 - Pygame community for the graphics framework
-- Astronomical community for orbital mechanics resources
 
 ---
-
-**Explore the universe from your computer! 🚀**
