@@ -494,24 +494,27 @@
         // functions for rendering 
         function drawStars() {
             // Create starbackground
-            const starCount = Math.min(800, canvas.width * canvas.height / 2000);
+            const starCount = Math.min(600, canvas.width * canvas.height / 3000);
             
             for (let i = 0; i < starCount; i++) {
                 // Use "random" based on camera position for consistent stars
-                const seed = i + Math.floor(camera.rotationZ / 10) * 1000 + Math.floor(camera.rotationX / 10) * 100;
-                const x = ((seed * 9301 + 49297) % 233280) / 233280 * canvas.width;
-                const y = ((seed * 9301 + 49297) % 233280) / 233281 * canvas.height;
-                const brightness = 100 + ((seed * 9301) % 156);
-                const size = (seed % 100) < 2 ? 2 : 1;
+                const seedX = (i * 73 + Math.floor(camera.rotationZ / 5) * 127) % 9973;
+                const seedY = (i * 97 + Math.floor(camera.rotationX / 5) * 151) % 9973;
+                const seedB = (i * 61 + Math.floor(camera.distance / 100) * 179) % 9973;
+                const x = (seedX / 9973) * canvas.width;
+                const y = (seedY / 9973) * canvas.height;
+                const brightness = 80 + (seedB % 175);
+                const size = (seedB % 100) < 3 ? 2 : 1;
                 
-                ctx.fillStyle = `rgb(${brightness}, ${brightness}, ${brightness})`;
-                if (size === 2) {
-                    ctx.fillRect(x-1, y-1, 2, 2);
-                } else {
-                    ctx.fillRect(x, y, 1, 1);
+                if (x >= 0 && x < canvas.width && y >= 0 && y < canvas.height) {
+                    ctx.fillStyle = `rgb(${brightness}, ${brightness}, ${brightness})`;
+                    if (size === 2) {
+                        ctx.fillRect(Math.floor(x), Math.floor(y), 2, 2);
+                    } else {
+                        ctx.fillRect(Math.floor(x), Math.floor(y), 1, 1);
+                    }
                 }
             }
-        }
         
         function drawSun() {
             const [screenX, screenY, depth, scale] = project3D(0, 0, 0);
