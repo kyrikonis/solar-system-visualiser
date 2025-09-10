@@ -14,7 +14,7 @@
         
         body {
             background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
-            font-family: 'Segoe UI', 'Roboto', 'Courier New', monospace;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow: hidden;
             color: white;
             user-select: none;
@@ -33,21 +33,20 @@
         
         .panel {
             position: absolute;
-            background: rgba(15, 15, 25, 0.85);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(100, 149, 237, 0.3);
-            border-radius: 10px;
-            padding: 15px;
-            font-size: 14px;
-            line-height: 1.6;
+            background: rgba(20, 20, 30, 0.9);
+            border: 1px solid rgba(60, 60, 80, 0.5);
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 13px;
+            line-height: 1.5;
             z-index: 100;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
         }
         
         .hud {
             top: 20px;
             left: 20px;
-            min-width: 280px;
+            min-width: 260px;
         }
         
         .controls {
@@ -69,98 +68,98 @@
             transform: translate(-50%, -50%);
             text-align: center;
             max-width: 500px;
-            animation: fadeIn 2s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translate(-50%, -60%); }
-            to { opacity: 1; transform: translate(-50%, -50%); }
         }
         
         .title {
-            color: #6495ed;
+            color: #a0a0ff;
             font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(100, 149, 237, 0.5);
+            font-weight: 600;
+            margin-bottom: 12px;
         }
         
         .accent { 
-            color: #6495ed; 
-            font-weight: bold;
+            color: #8080ff;
+            font-weight: 500;
         }
         
         .highlight { 
-            color: #ffd700; 
-            font-weight: bold;
+            color: #ffcc80;
+            font-weight: 500;
         }
         
         .planet-name {
-            color: #ffd700;
+            color: #ffcc80;
             font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 8px;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
         
         button {
-            background: linear-gradient(135deg, rgba(100, 149, 237, 0.2), rgba(100, 149, 237, 0.1));
-            border: 1px solid #6495ed;
+            background: rgba(80, 80, 120, 0.8);
+            border: 1px solid rgba(120, 120, 160, 0.6);
             color: white;
             padding: 8px 12px;
-            margin: 3px;
-            border-radius: 6px;
+            margin: 2px;
+            border-radius: 4px;
             cursor: pointer;
             font-size: 11px;
             font-family: inherit;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
         
         button:hover {
-            background: linear-gradient(135deg, rgba(100, 149, 237, 0.4), rgba(100, 149, 237, 0.2));
-            box-shadow: 0 0 15px rgba(100, 149, 237, 0.3);
-            transform: translateY(-1px);
+            background: rgba(100, 100, 140, 0.9);
+            border-color: rgba(140, 140, 180, 0.8);
         }
         
-        button:active {
-            transform: translateY(0);
+        button.active {
+            background: rgba(120, 120, 160, 0.9);
+            border-color: rgba(160, 160, 200, 0.8);
         }
         
-        .date-controls, .planet-controls, .zoom-controls {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(100, 149, 237, 0.2);
+        .section {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(60, 60, 80, 0.5);
+        }
+        
+        .section-title {
+            color: #8080ff;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 8px;
         }
         
         .status {
             display: inline-block;
             padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 500;
         }
         
         .status.running {
-            background: rgba(0, 255, 0, 0.2);
-            color: #00ff00;
+            background: rgba(80, 200, 80, 0.2);
+            color: #80ff80;
         }
         
         .status.paused {
-            background: rgba(255, 100, 100, 0.2);
-            color: #ff6464;
+            background: rgba(200, 80, 80, 0.2);
+            color: #ff8080;
         }
         
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 10px 0;
+            gap: 8px;
+            margin: 12px 0;
         }
         
         .info-item {
-            background: rgba(100, 149, 237, 0.1);
+            background: rgba(40, 40, 60, 0.6);
             padding: 8px;
             border-radius: 4px;
-            font-size: 12px;
+            font-size: 11px;
         }
         
         .loading {
@@ -173,13 +172,13 @@
         }
         
         .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(100, 149, 237, 0.3);
-            border-top: 4px solid #6495ed;
+            width: 32px;
+            height: 32px;
+            border: 3px solid rgba(128, 128, 255, 0.3);
+            border-top: 3px solid #8080ff;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
+            margin: 0 auto 16px;
         }
         
         @keyframes spin {
@@ -187,10 +186,23 @@
             100% { transform: rotate(360deg); }
         }
         
+        .view-mode {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(40, 40, 60, 0.9);
+            padding: 6px 16px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid rgba(80, 80, 120, 0.5);
+        }
+        
         @media (max-width: 768px) {
             .panel {
-                font-size: 12px;
-                padding: 10px;
+                font-size: 11px;
+                padding: 12px;
                 max-width: calc(100vw - 40px);
             }
             
@@ -199,10 +211,6 @@
                 bottom: 20px;
                 right: 20px;
                 left: auto;
-            }
-            
-            .hud {
-                max-width: calc(100vw - 40px);
             }
             
             button {
@@ -218,89 +226,98 @@
         <div class="accent">Loading Solar System...</div>
     </div>
     
+    <div class="view-mode" id="viewMode" style="display: none;">
+        3D Perspective View
+    </div>
+    
     <canvas id="canvas"></canvas>
     
     <div class="panel welcome" id="welcome">
-        <div class="title">🌟 3D Solar System Explorer</div>
-        <p>Experience the solar system with real orbital mechanics!</p>
+        <div class="title">Solar System Explorer</div>
+        <p>Interactive visualization with real orbital mechanics</p>
         <br>
         <p><strong>Controls:</strong></p>
         <p>• Drag to rotate • Scroll to zoom • Click planets for info</p>
+        <p>• Toggle between 3D and 2D map views</p>
         <br>
-        <button onclick="hideWelcome()" style="font-size: 14px; padding: 10px 20px;">
-            🚀 Explore Now
+        <button onclick="hideWelcome()" style="font-size: 13px; padding: 12px 20px;">
+            Start Exploring
         </button>
     </div>
     
     <div class="panel hud" id="hud" style="display: none;">
-        <div class="title">🌟 Solar System Explorer</div>
-        <div id="date-display">Date: Loading...</div>
-        <div id="camera-info">Camera: 0° tilt, 0° rotation</div>
-        <div id="zoom-info">Zoom: 100%</div>
-        <div id="status-display">
-            <span class="status running" id="status">RUNNING</span>
-        </div>
-        <div id="selected-info"></div>
+        <div class="title">Solar System Explorer</div>
+        <div id="dateDisplay">Date: Loading...</div>
+        <div id="cameraInfo">Camera: 0° tilt, 0° rotation</div>
+        <div id="zoomInfo">Distance: 20.0 AU</div>
+        <div><span class="status running" id="status">RUNNING</span></div>
+        <div id="selectedInfo"></div>
         
-        <div class="date-controls">
-            <div class="accent" style="margin-bottom: 8px;">⏰ Time Controls</div>
-            <button onclick="timeStep(-365)" title="Back 1 year">⏪ Year</button>
-            <button onclick="timeStep(-30)" title="Back 1 month">← Month</button>
-            <button onclick="timeStep(-1)" title="Back 1 day">← Day</button>
+        <div class="section">
+            <div class="section-title">Time Controls</div>
+            <button onclick="timeStep(-365)">← Year</button>
+            <button onclick="timeStep(-30)">← Month</button>
+            <button onclick="timeStep(-1)">← Day</button>
             <br>
-            <button onclick="togglePause()" id="pauseBtn" title="Pause/Resume">⏯ Pause</button>
-            <button onclick="resetToToday()" title="Jump to today">📅 Today</button>
+            <button onclick="togglePause()" id="pauseBtn">Pause</button>
+            <button onclick="resetToToday()">Today</button>
             <br>
-            <button onclick="timeStep(1)" title="Forward 1 day">Day →</button>
-            <button onclick="timeStep(30)" title="Forward 1 month">Month →</button>
-            <button onclick="timeStep(365)" title="Forward 1 year">Year ⏩</button>
+            <button onclick="timeStep(1)">Day →</button>
+            <button onclick="timeStep(30)">Month →</button>
+            <button onclick="timeStep(365)">Year →</button>
         </div>
         
-        <div class="planet-controls">
-            <div class="accent" style="margin-bottom: 8px;">🪐 Quick Select</div>
-            <button onclick="selectPlanet('Mercury')" class="planet-btn" data-planet="Mercury">☿ Mercury</button>
-            <button onclick="selectPlanet('Venus')" class="planet-btn" data-planet="Venus">♀ Venus</button>
-            <button onclick="selectPlanet('Earth')" class="planet-btn" data-planet="Earth">🌍 Earth</button>
-            <button onclick="selectPlanet('Mars')" class="planet-btn" data-planet="Mars">♂ Mars</button>
+        <div class="section">
+            <div class="section-title">Quick Select</div>
+            <button onclick="selectPlanet('Mercury')" class="planet-btn" data-planet="Mercury">Mercury</button>
+            <button onclick="selectPlanet('Venus')" class="planet-btn" data-planet="Venus">Venus</button>
+            <button onclick="selectPlanet('Earth')" class="planet-btn" data-planet="Earth">Earth</button>
+            <button onclick="selectPlanet('Mars')" class="planet-btn" data-planet="Mars">Mars</button>
             <br>
-            <button onclick="selectPlanet('Jupiter')" class="planet-btn" data-planet="Jupiter">♃ Jupiter</button>
-            <button onclick="selectPlanet('Saturn')" class="planet-btn" data-planet="Saturn">♄ Saturn</button>
-            <button onclick="selectPlanet('Uranus')" class="planet-btn" data-planet="Uranus">♅ Uranus</button>
-            <button onclick="selectPlanet('Neptune')" class="planet-btn" data-planet="Neptune">♆ Neptune</button>
+            <button onclick="selectPlanet('Jupiter')" class="planet-btn" data-planet="Jupiter">Jupiter</button>
+            <button onclick="selectPlanet('Saturn')" class="planet-btn" data-planet="Saturn">Saturn</button>
+            <button onclick="selectPlanet('Uranus')" class="planet-btn" data-planet="Uranus">Uranus</button>
+            <button onclick="selectPlanet('Neptune')" class="planet-btn" data-planet="Neptune">Neptune</button>
         </div>
     </div>
     
     <div class="panel controls" id="controls" style="display: none;">
-        <div class="accent" style="margin-bottom: 10px;">🎮 CONTROLS</div>
-        <div>🖱️ Mouse Drag: Rotate view</div>
-        <div>🔍 Mouse Scroll: Zoom in/out</div>
-        <div>🖱️ Click Planet: Select & info</div>
-        <div>⌨️ Space: Pause/Resume</div>
-        <div>⌨️ R: Reset camera</div>
-        <div>⌨️ H: Toggle this window</div>
-        <div>⌨️ 1-8: Quick planet select</div>
-        
-        <div class="zoom-controls">
-            <div class="accent" style="margin-bottom: 5px;">📏 Zoom Presets</div>
-            <button onclick="setZoomPreset('close')" title="Close-up view">🔍 Close</button>
-            <button onclick="setZoomPreset('inner')" title="Inner planets">🌍 Inner</button>
-            <button onclick="setZoomPreset('outer')" title="All planets">🪐 All</button>
-            <button onclick="setZoomPreset('system')" title="Full system">🌌 System</button>
+        <div class="section-title">Controls</div>
+        <div style="margin-bottom: 12px;">
+            <div>Mouse Drag: Rotate view</div>
+            <div>Mouse Scroll: Zoom in/out</div>
+            <div>Click Planet: Select info</div>
+            <div>Space: Pause/Resume</div>
+            <div>R: Reset camera</div>
+            <div>V: Toggle view mode</div>
+            <div>1-8: Quick planet select</div>
         </div>
         
-        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(100, 149, 237, 0.2);">
-            <button onclick="resetCamera()" title="Reset camera position">🔄 Reset View</button>
-            <button onclick="toggleHelp()" title="Show/hide controls">❓ Toggle Help</button>
-            <button onclick="toggleFullscreen()" title="Toggle fullscreen">⛶ Fullscreen</button>
+        <div class="section">
+            <div class="section-title">View Mode</div>
+            <button onclick="toggleViewMode()" id="viewModeBtn">Switch to 2D Map</button>
+            <button onclick="toggleTrails()" id="trailsBtn">Hide Trails</button>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">Zoom Presets</div>
+            <button onclick="setZoomPreset('close')">Close</button>
+            <button onclick="setZoomPreset('inner')">Inner</button>
+            <button onclick="setZoomPreset('outer')">All</button>
+            <button onclick="setZoomPreset('system')">System</button>
+        </div>
+        
+        <div class="section">
+            <button onclick="resetCamera()">Reset View</button>
+            <button onclick="toggleHelp()">Toggle Help</button>
         </div>
     </div>
     
-    <div class="panel planet-info" id="planet-info">
-        <div id="planet-details"></div>
+    <div class="panel planet-info" id="planetInfo">
+        <div id="planetDetails"></div>
     </div>
 
     <script>
-        // planet data, orbital mechanics
         const J2000_EPOCH = new Date('2000-01-01T12:00:00Z');
         
         const PLANETS = {
@@ -378,35 +395,31 @@
             }
         };
 
-        // global state
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
-        let animationId;
         
-        // Camera state - improved defaults for better overview
         let camera = {
             rotationX: -25,
             rotationZ: 0,
-            distance: 2000,  // Start further out for better overview
+            distance: 2000,
             dragging: false,
             lastMouse: [0, 0]
         };
         
-        // Simulation state
         let currentDate = new Date();
         let paused = false;
         let selectedPlanet = null;
-        let zoom = 140;
+        let zoom = 120;
         let trails = {};
         let showWelcome = true;
         let showControls = true;
+        let showTrails = true;
+        let viewMode = '3d'; // '3d' or '2d'
         
-        // Init movement trails
         Object.keys(PLANETS).forEach(name => {
             trails[name] = [];
         });
         
-        // orbital mechanics section
         function daysSinceJ2000(date) {
             return (date - J2000_EPOCH) / (1000 * 60 * 60 * 24);
         }
@@ -469,76 +482,72 @@
             return [x, y, z];
         }
         
-        // 3D camera projection
         function project3D(x, y, z) {
-            // Apply camera rotations
-            const cosZ = Math.cos(camera.rotationZ * Math.PI / 180);
-            const sinZ = Math.sin(camera.rotationZ * Math.PI / 180);
-            const xRot = x * cosZ - y * sinZ;
-            const yRot = x * sinZ + y * cosZ;
-            
-            const cosX = Math.cos(camera.rotationX * Math.PI / 180);
-            const sinX = Math.sin(camera.rotationX * Math.PI / 180);
-            const yFinal = yRot * cosX - z * sinX;
-            const zFinal = yRot * sinX + z * cosX;
-            
-            // Perspective projection
-            const perspectiveScale = camera.distance / (camera.distance + zFinal * zoom);
-            
-            const screenX = canvas.width / 2 + xRot * zoom * perspectiveScale;
-            const screenY = canvas.height / 2 - yFinal * zoom * perspectiveScale;
-            
-            return [screenX, screenY, zFinal, perspectiveScale];
+            if (viewMode === '2d') {
+                const screenX = canvas.width / 2 + x * zoom;
+                const screenY = canvas.height / 2 - y * zoom;
+                return [screenX, screenY, z, 1];
+            } else {
+                const cosZ = Math.cos(camera.rotationZ * Math.PI / 180);
+                const sinZ = Math.sin(camera.rotationZ * Math.PI / 180);
+                const xRot = x * cosZ - y * sinZ;
+                const yRot = x * sinZ + y * cosZ;
+                
+                const cosX = Math.cos(camera.rotationX * Math.PI / 180);
+                const sinX = Math.sin(camera.rotationX * Math.PI / 180);
+                const yFinal = yRot * cosX - z * sinX;
+                const zFinal = yRot * sinX + z * cosX;
+                
+                const perspectiveScale = camera.distance / (camera.distance + zFinal * zoom);
+                
+                const screenX = canvas.width / 2 + xRot * zoom * perspectiveScale;
+                const screenY = canvas.height / 2 - yFinal * zoom * perspectiveScale;
+                
+                return [screenX, screenY, zFinal, perspectiveScale];
+            }
         }
         
-        // functions for rendering 
         function drawStars() {
-            // Create starbackground
-            const starCount = Math.min(800, canvas.width * canvas.height / 2000);
+            const starCount = Math.min(500, canvas.width * canvas.height / 4000);
             
             for (let i = 0; i < starCount; i++) {
-                // Use "random" based on camera position for consistent stars
-                const seed = i + Math.floor(camera.rotationZ / 10) * 1000 + Math.floor(camera.rotationX / 10) * 100;
-                const x = ((seed * 9301 + 49297) % 233280) / 233280 * canvas.width;
-                const y = ((seed * 9301 + 49297) % 233280) / 233281 * canvas.height;
-                const brightness = 100 + ((seed * 9301) % 156);
-                const size = (seed % 100) < 2 ? 2 : 1;
+                const seedX = (i * 73 + Math.floor(camera.rotationZ / 5) * 127) % 9973;
+                const seedY = (i * 97 + Math.floor(camera.rotationX / 5) * 151) % 9973;
+                const seedB = (i * 61) % 9973;
                 
-                ctx.fillStyle = `rgb(${brightness}, ${brightness}, ${brightness})`;
-                if (size === 2) {
-                    ctx.fillRect(x-1, y-1, 2, 2);
-                } else {
-                    ctx.fillRect(x, y, 1, 1);
+                const x = (seedX / 9973) * canvas.width;
+                const y = (seedY / 9973) * canvas.height;
+                const brightness = 120 + (seedB % 135);
+                const size = (seedB % 100) < 5 ? 2 : 1;
+                
+                if (x >= 0 && x < canvas.width && y >= 0 && y < canvas.height) {
+                    ctx.fillStyle = `rgb(${brightness}, ${brightness}, ${brightness})`;
+                    ctx.fillRect(Math.floor(x), Math.floor(y), size, size);
                 }
             }
         }
         
         function drawSun() {
             const [screenX, screenY, depth, scale] = project3D(0, 0, 0);
-            const radius = Math.max(8, 25 * scale);
+            let radius = Math.max(6, 20 * scale);
             
-            // Glow effect
-            const gradient = ctx.createRadialGradient(screenX, screenY, 0, screenX, screenY, radius + 20);
+            if (viewMode === '2d') {
+                radius = Math.max(8, Math.min(25, zoom / 8));
+            }
+            
+            const gradient = ctx.createRadialGradient(screenX, screenY, 0, screenX, screenY, radius + 15);
             gradient.addColorStop(0, 'rgba(255, 215, 0, 0.9)');
-            gradient.addColorStop(0.3, 'rgba(255, 215, 0, 0.6)');
-            gradient.addColorStop(0.7, 'rgba(255, 140, 0, 0.3)');
+            gradient.addColorStop(0.4, 'rgba(255, 180, 0, 0.5)');
             gradient.addColorStop(1, 'rgba(255, 140, 0, 0)');
             
             ctx.fillStyle = gradient;
             ctx.beginPath();
-            ctx.arc(screenX, screenY, radius + 20, 0, 2 * Math.PI);
+            ctx.arc(screenX, screenY, radius + 15, 0, 2 * Math.PI);
             ctx.fill();
             
-            // Main sun
             ctx.fillStyle = 'rgb(255, 215, 0)';
             ctx.beginPath();
             ctx.arc(screenX, screenY, radius, 0, 2 * Math.PI);
-            ctx.fill();
-            
-            // Core highlight
-            ctx.fillStyle = 'rgba(255, 255, 200, 0.8)';
-            ctx.beginPath();
-            ctx.arc(screenX - radius/3, screenY - radius/3, Math.max(2, radius/2), 0, 2 * Math.PI);
             ctx.fill();
         }
         
@@ -546,9 +555,8 @@
             const elements = PLANETS[name];
             const points = [];
             
-            // Generate orbit points
-            for (let i = 0; i <= 200; i++) {
-                const nu = 2 * Math.PI * i / 200;
+            for (let i = 0; i <= 180; i++) {
+                const nu = 2 * Math.PI * i / 180;
                 const r = elements.a * (1 - elements.e * elements.e) / (1 + elements.e * Math.cos(nu));
                 
                 const i_rad = elements.i * Math.PI / 180;
@@ -568,15 +576,15 @@
                 const z = r * (sinU * sinI);
                 
                 const [screenX, screenY] = project3D(x, y, z);
-                if (screenX > -100 && screenX < canvas.width + 100 && 
-                    screenY > -100 && screenY < canvas.height + 100) {
+                if (screenX > -200 && screenX < canvas.width + 200 && 
+                    screenY > -200 && screenY < canvas.height + 200) {
                     points.push([screenX, screenY]);
                 }
             }
             
             if (points.length > 2) {
                 ctx.strokeStyle = name === selectedPlanet ? 
-                    'rgba(100, 149, 237, 0.8)' : 'rgba(80, 80, 120, 0.4)';
+                    'rgba(160, 160, 255, 0.8)' : 'rgba(100, 100, 140, 0.4)';
                 ctx.lineWidth = name === selectedPlanet ? 2 : 1;
                 ctx.beginPath();
                 ctx.moveTo(points[0][0], points[0][1]);
@@ -587,87 +595,106 @@
             }
         }
         
+        function calculateLabelPosition(screenX, screenY, radius, usedPositions) {
+            const positions = [
+                [screenX + radius + 8, screenY - radius/2],
+                [screenX + radius + 8, screenY + radius + 15],
+                [screenX - radius - 60, screenY - radius/2],
+                [screenX - radius - 60, screenY + radius + 15],
+                [screenX, screenY - radius - 20],
+                [screenX, screenY + radius + 25]
+            ];
+            
+            for (const [x, y] of positions) {
+                let collision = false;
+                for (const used of usedPositions) {
+                    if (Math.abs(x - used.x) < 70 && Math.abs(y - used.y) < 20) {
+                        collision = true;
+                        break;
+                    }
+                }
+                if (!collision) {
+                    return { x, y };
+                }
+            }
+            
+            return { x: positions[0][0], y: positions[0][1] };
+        }
+        
         function drawPlanet(name, position) {
             const [x, y, z] = position;
             const [screenX, screenY, depth, scale] = project3D(x, y, z);
             
-            if (scale <= 0 || screenX < -200 || screenX > canvas.width + 200 || 
-                screenY < -200 || screenY > canvas.height + 200) {
+            if (scale <= 0 || screenX < -300 || screenX > canvas.width + 300 || 
+                screenY < -300 || screenY > canvas.height + 300) {
                 return null;
             }
             
             const planet = PLANETS[name];
-            const radius = Math.max(2, planet.radius * scale);
-            const [r, g, b] = planet.color;
+            let radius = Math.max(3, planet.radius * scale);
             
-            // Selection indicator
-            if (name === selectedPlanet) {
-                ctx.strokeStyle = '#6495ed';
-                ctx.lineWidth = 3;
-                ctx.beginPath();
-                ctx.arc(screenX, screenY, radius + 8, 0, 2 * Math.PI);
-                ctx.stroke();
-                
-                // Pulsing glow effect
-                const glowRadius = radius + 8 + Math.sin(Date.now() / 200) * 3;
-                const glowGradient = ctx.createRadialGradient(
-                    screenX, screenY, radius + 5,
-                    screenX, screenY, glowRadius
-                );
-                glowGradient.addColorStop(0, 'rgba(100, 149, 237, 0.3)');
-                glowGradient.addColorStop(1, 'rgba(100, 149, 237, 0)');
-                ctx.fillStyle = glowGradient;
-                ctx.beginPath();
-                ctx.arc(screenX, screenY, glowRadius, 0, 2 * Math.PI);
-                ctx.fill();
+            if (viewMode === '2d') {
+                radius = Math.max(4, Math.min(planet.radius * 1.5, zoom / 12));
             }
             
-            // Atmosphere effect
-            if (planet.atmosphere) {
-                const atmoRadius = radius + 4;
+            const [r, g, b] = planet.color;
+            const isObscured = viewMode === '3d' && depth > 0 && scale < 0.2;
+            
+            if (isObscured) {
+                ctx.globalAlpha = 0.3;
+            }
+            
+            if (name === selectedPlanet && !isObscured) {
+                ctx.strokeStyle = 'rgba(160, 160, 255, 0.8)';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.arc(screenX, screenY, radius + 6, 0, 2 * Math.PI);
+                ctx.stroke();
+            }
+            
+            if (planet.atmosphere && !isObscured) {
+                const atmoRadius = radius + 3;
                 const atmoGradient = ctx.createRadialGradient(
                     screenX, screenY, radius,
                     screenX, screenY, atmoRadius
                 );
                 atmoGradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.1)`);
-                atmoGradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0.05)`);
+                atmoGradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0.03)`);
                 ctx.fillStyle = atmoGradient;
                 ctx.beginPath();
                 ctx.arc(screenX, screenY, atmoRadius, 0, 2 * Math.PI);
                 ctx.fill();
             }
             
-            // Main planet
             ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
             ctx.beginPath();
             ctx.arc(screenX, screenY, radius, 0, 2 * Math.PI);
             ctx.fill();
             
-            // 3d shading
-            const highlightR = Math.min(255, r + 50);
-            const highlightG = Math.min(255, g + 50);
-            const highlightB = Math.min(255, b + 50);
-            const highlightRadius = Math.max(1, radius / 3);
+            if (!isObscured) {
+                const highlightR = Math.min(255, r + 40);
+                const highlightG = Math.min(255, g + 40);
+                const highlightB = Math.min(255, b + 40);
+                const highlightRadius = Math.max(1, radius / 4);
+                
+                ctx.fillStyle = `rgba(${highlightR}, ${highlightG}, ${highlightB}, 0.6)`;
+                ctx.beginPath();
+                ctx.arc(screenX - radius/4, screenY - radius/4, highlightRadius, 0, 2 * Math.PI);
+                ctx.fill();
+            }
             
-            ctx.fillStyle = `rgba(${highlightR}, ${highlightG}, ${highlightB}, 0.7)`;
-            ctx.beginPath();
-            ctx.arc(screenX - radius/3, screenY - radius/3, highlightRadius, 0, 2 * Math.PI);
-            ctx.fill();
-            
-            // rings for saturn and uranus
-            if (planet.rings) {
-                const ringWidth = (radius + 10) * 2;
-                const ringHeight = Math.abs(6 * Math.cos(camera.rotationX * Math.PI / 180));
+            if (planet.rings && radius > 4) {
+                const ringWidth = (radius + 8) * 2;
+                let ringHeight = viewMode === '2d' ? 6 : Math.abs(4 * Math.cos(camera.rotationX * Math.PI / 180));
                 
                 if (ringHeight > 1) {
                     ctx.strokeStyle = name === 'Saturn' ? 
-                        'rgba(210, 180, 140, 0.8)' : 'rgba(100, 150, 200, 0.6)';
-                    ctx.lineWidth = Math.max(1, scale * 2);
+                        'rgba(210, 180, 140, 0.7)' : 'rgba(120, 160, 200, 0.6)';
+                    ctx.lineWidth = Math.max(1, scale * 1.5);
                     
-                    // Multiple ring layers
-                    for (let i = 0; i < 3; i++) {
-                        const layerWidth = ringWidth + i * 4;
-                        const layerHeight = ringHeight + i * 2;
+                    for (let i = 0; i < 2; i++) {
+                        const layerWidth = ringWidth + i * 3;
+                        const layerHeight = ringHeight + i * 1;
                         ctx.beginPath();
                         ctx.ellipse(screenX, screenY, layerWidth/2, layerHeight/2, 0, 0, 2 * Math.PI);
                         ctx.stroke();
@@ -675,47 +702,65 @@
                 }
             }
             
-            // Planet label
-            if (scale > 0.1) {
-                const fontSize = Math.max(10, Math.min(16, 14 * scale));
-                ctx.font = `${fontSize}px 'Segoe UI', sans-serif`;
-                ctx.fillStyle = 'white';
-                ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)';
-                ctx.lineWidth = 2;
+            if (showTrails && !isObscured) {
+                trails[name].push([x, y, z, Date.now()]);
+                if (trails[name].length > 120) {
+                    trails[name].shift();
+                }
                 
-                const labelX = screenX + radius + 8;
-                const labelY = screenY - radius/2;
-                
-                ctx.strokeText(name, labelX, labelY);
-                ctx.fillText(name, labelX, labelY);
-            }
-            
-            // Update and draw trail
-            trails[name].push([x, y, z, Date.now()]);
-            if (trails[name].length > 150) {
-                trails[name].shift();
-            }
-            
-            // Draw trail with fade effect
-            if (trails[name].length > 2) {
-                for (let i = 1; i < trails[name].length; i++) {
-                    const [tx, ty, tz] = trails[name][i];
-                    const [tScreenX, tScreenY, tDepth, tScale] = project3D(tx, ty, tz);
-                    
-                    const alpha = (i / trails[name].length) * 0.6;
-                    const trailSize = Math.max(1, 2 * tScale);
-                    
-                    ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
-                    ctx.beginPath();
-                    ctx.arc(tScreenX, tScreenY, trailSize, 0, 2 * Math.PI);
-                    ctx.fill();
+                if (trails[name].length > 2) {
+                    for (let i = 1; i < trails[name].length; i++) {
+                        const [tx, ty, tz] = trails[name][i];
+                        const [tScreenX, tScreenY, tDepth, tScale] = project3D(tx, ty, tz);
+                        
+                        const alpha = (i / trails[name].length) * 0.4;
+                        const trailSize = Math.max(1, 2 * tScale);
+                        
+                        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
+                        ctx.beginPath();
+                        ctx.arc(tScreenX, tScreenY, trailSize, 0, 2 * Math.PI);
+                        ctx.fill();
+                    }
                 }
             }
             
-            return [screenX, screenY, radius];
+            ctx.globalAlpha = 1.0;
+            
+            return { name, screenX, screenY, radius, scale, isObscured };
         }
         
-        // handling user controls
+        function drawLabels(planetData) {
+            const usedPositions = [];
+            
+            planetData.sort((a, b) => {
+                if (a.name === selectedPlanet) return -1;
+                if (b.name === selectedPlanet) return 1;
+                if (a.isObscured !== b.isObscured) return a.isObscured ? 1 : -1;
+                return b.scale - a.scale;
+            });
+            
+            planetData.forEach(planet => {
+                if (planet.scale > 0.1 && !planet.isObscured) {
+                    const fontSize = Math.max(10, Math.min(14, 12 * planet.scale));
+                    ctx.font = `${fontSize}px 'Segoe UI', sans-serif`;
+                    
+                    const labelPos = calculateLabelPosition(
+                        planet.screenX, planet.screenY, planet.radius, usedPositions
+                    );
+                    
+                    const textWidth = ctx.measureText(planet.name).width;
+                    
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+                    ctx.fillRect(labelPos.x - 2, labelPos.y - fontSize, textWidth + 4, fontSize + 2);
+                    
+                    ctx.fillStyle = 'white';
+                    ctx.fillText(planet.name, labelPos.x, labelPos.y);
+                    
+                    usedPositions.push({ x: labelPos.x, y: labelPos.y });
+                }
+            });
+        }
+        
         function handleMouseDown(e) {
             camera.dragging = true;
             camera.lastMouse = [e.clientX, e.clientY];
@@ -728,7 +773,7 @@
         }
         
         function handleMouseMove(e) {
-            if (camera.dragging) {
+            if (camera.dragging && viewMode === '3d') {
                 const dx = e.clientX - camera.lastMouse[0];
                 const dy = e.clientY - camera.lastMouse[1];
                 
@@ -739,12 +784,15 @@
             }
         }
         
-        // IMPROVED ZOOM FUNCTION - Much wider range for full solar system view
         function handleWheel(e) {
             e.preventDefault();
             const zoomFactor = e.deltaY > 0 ? 1.1 : 0.9;
-            // Extended range: 50 to 15000 (vs previous 200 to 3000)
-            camera.distance = Math.max(50, Math.min(15000, camera.distance * zoomFactor));
+            
+            if (viewMode === '2d') {
+                zoom = Math.max(10, Math.min(1000, zoom * zoomFactor));
+            } else {
+                camera.distance = Math.max(100, Math.min(20000, camera.distance * zoomFactor));
+            }
         }
         
         function handleClick(e) {
@@ -752,22 +800,24 @@
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             
-            // Check if click is near any planet
             let clickedPlanet = null;
             let minDistance = Infinity;
             
             Object.entries(PLANETS).forEach(([name, elements]) => {
                 const position = elementsToXYZ(elements, currentDate);
-                const planetDraw = drawPlanet(name, position);
+                const [screenX, screenY] = project3D(...position);
                 
-                if (planetDraw) {
-                    const [px, py, radius] = planetDraw;
-                    const distance = Math.sqrt((x - px) ** 2 + (y - py) ** 2);
-                    
-                    if (distance < radius + 10 && distance < minDistance) {
-                        minDistance = distance;
-                        clickedPlanet = name;
-                    }
+                const planet = PLANETS[name];
+                let radius = Math.max(3, planet.radius);
+                if (viewMode === '2d') {
+                    radius = Math.max(4, Math.min(planet.radius * 1.5, zoom / 12));
+                }
+                
+                const distance = Math.sqrt((x - screenX) ** 2 + (y - screenY) ** 2);
+                
+                if (distance < radius + 12 && distance < minDistance) {
+                    minDistance = distance;
+                    clickedPlanet = name;
                 }
             });
             
@@ -790,6 +840,10 @@
                 case 'H':
                     toggleHelp();
                     break;
+                case 'v':
+                case 'V':
+                    toggleViewMode();
+                    break;
                 case '1': selectPlanet('Mercury'); break;
                 case '2': selectPlanet('Venus'); break;
                 case '3': selectPlanet('Earth'); break;
@@ -801,11 +855,11 @@
             }
         }
         
-        // UI functions
         function hideWelcome() {
             document.getElementById('welcome').style.display = 'none';
             document.getElementById('hud').style.display = 'block';
             document.getElementById('controls').style.display = 'block';
+            document.getElementById('viewMode').style.display = 'block';
             showWelcome = false;
             document.getElementById('loading').style.display = 'none';
         }
@@ -818,11 +872,11 @@
             if (paused) {
                 statusEl.textContent = 'PAUSED';
                 statusEl.className = 'status paused';
-                pauseBtnEl.textContent = '▶️ Resume';
+                pauseBtnEl.textContent = 'Resume';
             } else {
                 statusEl.textContent = 'RUNNING';
                 statusEl.className = 'status running';
-                pauseBtnEl.textContent = '⏸️ Pause';
+                pauseBtnEl.textContent = 'Pause';
             }
         }
         
@@ -834,29 +888,72 @@
             currentDate = new Date();
         }
         
-        // IMPROVED RESET CAMERA - Better default view
         function resetCamera() {
-            camera.rotationX = -25;
-            camera.rotationZ = 0;
-            camera.distance = 2000;  // Better default for seeing all planets
-            zoom = 140;
+            if (viewMode === '3d') {
+                camera.rotationX = -25;
+                camera.rotationZ = 0;
+                camera.distance = 2000;
+                zoom = 120;
+            } else {
+                zoom = 80;
+            }
         }
         
-        // NEW ZOOM PRESET FUNCTION
+        function toggleViewMode() {
+            viewMode = viewMode === '3d' ? '2d' : '3d';
+            
+            const btn = document.getElementById('viewModeBtn');
+            const indicator = document.getElementById('viewMode');
+            
+            if (viewMode === '2d') {
+                camera.rotationX = -90;
+                camera.rotationZ = 0;
+                zoom = 80;
+                btn.textContent = 'Switch to 3D';
+                btn.classList.add('active');
+                indicator.textContent = '2D Map View';
+            } else {
+                camera.rotationX = -25;
+                camera.rotationZ = 0;
+                camera.distance = 2000;
+                zoom = 120;
+                btn.textContent = 'Switch to 2D Map';
+                btn.classList.remove('active');
+                indicator.textContent = '3D Perspective View';
+            }
+        }
+        
+        function toggleTrails() {
+            showTrails = !showTrails;
+            const btn = document.getElementById('trailsBtn');
+            
+            if (showTrails) {
+                btn.textContent = 'Hide Trails';
+                btn.classList.remove('active');
+            } else {
+                btn.textContent = 'Show Trails';
+                btn.classList.add('active');
+                Object.keys(trails).forEach(name => {
+                    trails[name] = [];
+                });
+            }
+        }
+        
         function setZoomPreset(preset) {
-            switch(preset) {
-                case 'close':
-                    camera.distance = 150;   // Very close view
-                    break;
-                case 'inner':
-                    camera.distance = 500;   // Inner planets (Mercury to Mars)
-                    break;
-                case 'outer':
-                    camera.distance = 1500;  // All planets visible
-                    break;
-                case 'system':
-                    camera.distance = 5000;  // Full solar system overview
-                    break;
+            if (viewMode === '2d') {
+                switch(preset) {
+                    case 'close': zoom = 400; break;
+                    case 'inner': zoom = 200; break;
+                    case 'outer': zoom = 80; break;
+                    case 'system': zoom = 30; break;
+                }
+            } else {
+                switch(preset) {
+                    case 'close': camera.distance = 200; break;
+                    case 'inner': camera.distance = 600; break;
+                    case 'outer': camera.distance = 2000; break;
+                    case 'system': camera.distance = 8000; break;
+                }
             }
         }
         
@@ -865,31 +962,23 @@
             document.getElementById('controls').style.display = showControls ? 'block' : 'none';
         }
         
-        function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
-            } else {
-                document.exitFullscreen();
-            }
-        }
-        
         function selectPlanet(name) {
             selectedPlanet = selectedPlanet === name ? null : name;
             
-            // Update planet button styles
             document.querySelectorAll('.planet-btn').forEach(btn => {
-                btn.style.background = btn.dataset.planet === selectedPlanet ? 
-                    'linear-gradient(135deg, rgba(100, 149, 237, 0.6), rgba(100, 149, 237, 0.3))' :
-                    'linear-gradient(135deg, rgba(100, 149, 237, 0.2), rgba(100, 149, 237, 0.1))';
+                if (btn.dataset.planet === selectedPlanet) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
             });
             
-            const infoPanel = document.getElementById('planet-info');
+            const infoPanel = document.getElementById('planetInfo');
             if (selectedPlanet) {
                 const planet = PLANETS[selectedPlanet];
                 const position = elementsToXYZ(planet, currentDate);
                 const distance = Math.sqrt(position[0]**2 + position[1]**2 + position[2]**2);
                 
-                // Calculate Earth distance
                 const earthPos = elementsToXYZ(PLANETS.Earth, currentDate);
                 const earthDistance = Math.sqrt(
                     (position[0] - earthPos[0])**2 + 
@@ -899,7 +988,7 @@
                 
                 const orbitalSpeed = Math.sqrt(1.0 / distance) * 29.78;
                 
-                document.getElementById('planet-details').innerHTML = `
+                document.getElementById('planetDetails').innerHTML = `
                     <div class="planet-name">${selectedPlanet.toUpperCase()}</div>
                     
                     <div class="info-grid">
@@ -939,9 +1028,9 @@
                         </div>
                     </div>
                     
-                    <div style="margin-top: 15px; padding: 10px; background: rgba(100, 149, 237, 0.1); border-radius: 6px;">
-                        <div class="accent" style="margin-bottom: 5px;">💡 Fun Fact</div>
-                        <div style="font-size: 12px; line-height: 1.4;">${planet.fact}</div>
+                    <div style="margin-top: 12px; padding: 10px; background: rgba(60, 60, 80, 0.4); border-radius: 4px;">
+                        <div class="accent" style="margin-bottom: 6px;">Fact</div>
+                        <div style="font-size: 11px; line-height: 1.4;">${planet.fact}</div>
                     </div>
                 `;
                 infoPanel.style.display = 'block';
@@ -956,23 +1045,27 @@
                 hour: '2-digit', minute: '2-digit', timeZone: 'UTC'
             };
             
-            document.getElementById('date-display').innerHTML = 
-                `<span class="accent">📅 Date:</span> ${currentDate.toLocaleDateString('en-US', options)} UTC`;
+            document.getElementById('dateDisplay').innerHTML = 
+                `Date: ${currentDate.toLocaleDateString('en-US', options)} UTC`;
             
-            document.getElementById('camera-info').innerHTML = 
-                `<span class="accent">📷 Camera:</span> ${camera.rotationX.toFixed(0)}° tilt, ${camera.rotationZ.toFixed(0)}° rotation`;
+            document.getElementById('cameraInfo').innerHTML = 
+                `Camera: ${camera.rotationX.toFixed(0)}° tilt, ${camera.rotationZ.toFixed(0)}° rotation`;
             
-            // IMPROVED ZOOM DISPLAY - Shows actual AU distance
-            document.getElementById('zoom-info').innerHTML = 
-                `<span class="accent">🔍 Distance:</span> ${(camera.distance / 100).toFixed(1)} AU`;
+            if (viewMode === '2d') {
+                document.getElementById('zoomInfo').innerHTML = 
+                    `Zoom: ${zoom.toFixed(0)}x`;
+            } else {
+                document.getElementById('zoomInfo').innerHTML = 
+                    `Distance: ${(camera.distance / 100).toFixed(1)} AU`;
+            }
             
             if (selectedPlanet) {
                 const position = elementsToXYZ(PLANETS[selectedPlanet], currentDate);
                 const distance = Math.sqrt(position[0]**2 + position[1]**2 + position[2]**2);
-                document.getElementById('selected-info').innerHTML = 
-                    `<div class="highlight">🎯 Selected: ${selectedPlanet} (${distance.toFixed(2)} AU)</div>`;
+                document.getElementById('selectedInfo').innerHTML = 
+                    `<div class="highlight">Selected: ${selectedPlanet} (${distance.toFixed(2)} AU)</div>`;
             } else {
-                document.getElementById('selected-info').innerHTML = '';
+                document.getElementById('selectedInfo').innerHTML = '';
             }
         }
         
@@ -981,9 +1074,7 @@
             canvas.height = window.innerHeight;
         }
         
-        // main rendering loop
         function render() {
-            // Clear canvas with gradient background
             const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
             gradient.addColorStop(0, '#0c0c0c');
             gradient.addColorStop(0.5, '#1a1a2e');
@@ -991,15 +1082,12 @@
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             
-            // Draw stars
             drawStars();
             
-            // Draw orbits
             Object.keys(PLANETS).forEach(name => {
                 drawOrbit(name);
             });
             
-            // Calculate and sort planets by depth
             const planetData = [];
             Object.entries(PLANETS).forEach(([name, elements]) => {
                 const position = elementsToXYZ(elements, currentDate);
@@ -1007,55 +1095,56 @@
                 planetData.push([name, position, depth]);
             });
             
-            // Sort by depth (furthest first)
-            planetData.sort((a, b) => b[2] - a[2]);
+            if (viewMode === '3d') {
+                planetData.sort((a, b) => b[2] - a[2]);
+            } else {
+                planetData.sort((a, b) => {
+                    const distA = Math.sqrt(a[1][0]**2 + a[1][1]**2);
+                    const distB = Math.sqrt(b[1][0]**2 + b[1][1]**2);
+                    return distA - distB;
+                });
+            }
             
-            // Draw sun first (always at origin)
             drawSun();
             
-            // Draw planets in depth order
+            const labelData = [];
             planetData.forEach(([name, position]) => {
-                drawPlanet(name, position);
+                const result = drawPlanet(name, position);
+                if (result) labelData.push(result);
             });
             
-            // Update HUD
+            drawLabels(labelData);
+            
             if (!showWelcome) {
                 updateHUD();
             }
             
-            // Advance time if not paused
             if (!paused && !showWelcome) {
-                currentDate.setTime(currentDate.getTime() + 2 * 60 * 60 * 1000); // 2 hours per frame
+                currentDate.setTime(currentDate.getTime() + 2 * 60 * 60 * 1000);
             }
             
-            animationId = requestAnimationFrame(render);
+            requestAnimationFrame(render);
         }
     
         function init() {
             resizeCanvas();
             
-            // Event listeners
             canvas.addEventListener('mousedown', handleMouseDown);
             window.addEventListener('mouseup', handleMouseUp);
             window.addEventListener('mousemove', handleMouseMove);
             canvas.addEventListener('wheel', handleWheel);
             canvas.addEventListener('click', handleClick);
             window.addEventListener('keypress', handleKeyPress);
-            window.addEventListener('resize', () => {
-                resizeCanvas();
-            });
+            window.addEventListener('resize', resizeCanvas);
             
-            // Hide loading screen after a moment
             setTimeout(() => {
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('welcome').style.display = 'block';
-            }, 1000);
+            }, 800);
             
-            // Start render loop
             render();
         }
         
-        // Start the application
         init();
     </script>
 </body>
