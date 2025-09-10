@@ -1,20 +1,22 @@
 # 3D Solar System Visualiser
 
 A real-time 3D visualisation/simulator of our Solar System using accurate NASA orbital elements. You can see the state of the solar system at any given time with full camera controls and detailed information for each planet.
+Both a Python version and a Web version have been created.
+Access it here: [Solar System Visualiser](https://kyrikonis.github.io/solar-system-visualiser/)
 
 ## Features
 
 ### Real-time 3D Visualisation
 - Full 3D camera system controlled via mouse
 - Accurate planetary positions based on Keplerian orbital elements (J2000.0 epoch)
-- Smooth orbital animations with configurable time steps
-- Starry background for immersive space experience
+- Smooth orbital animations with controllable time steps
+- Starry background for an immersive experience
 
 ### Planetary Details
-- All 8 planets with realistic colours and sizes relative to each other
+- All 8 planets with colours and sizes relative to each other
 - Saturns rings with 3D perspective effects
-- Atmospheric effects for Venus and Earth
-- Orbital trails tracking each planets paths
+- Attempted extra 'atmospheric' effects for Venus and Earth
+- Orbital trails tracking each planets movement
 - Individual planet information cells with facts on whatever one of your choosing
 
 ### Time Control
@@ -116,8 +118,11 @@ The simulation uses accurate Keplerian orbital elements:
 
 ```
 solar-system-visualiser/
-├── main.py              # Main application and 3D rendering
-├── planet_data.py       # orbital mechanics and calculations
+├── python/             # Main application and 3D rendering
+|    ├── planet_data.py       # orbital mechanics and calculations
+|    ├── main.py
+├─── web/
+|    ├── index.html
 ├── requirements.txt     # dependencies / libraries used
 └── README.md
 ```
